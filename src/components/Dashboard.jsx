@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { AuthContext } from '../lib/auth-context'
 
-export default function Dashboard({ title, description }) {
+export default function Dashboard({ title, description, children }) {
   const { profile } = useContext(AuthContext)
   const navigate = useNavigate()
 
@@ -30,6 +30,7 @@ export default function Dashboard({ title, description }) {
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">Hello, {fullName}</h1>
           <p className="mt-3 text-slate-600">{description}</p>
         </div>
+        {children}
       </section>
     </main>
   )
